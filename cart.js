@@ -61,8 +61,10 @@ cartItems[0].addEventListener("click", (e) => {
   if (existingItem) {
     getcartDataAndUpdateCart(product);
   } else if (!existingItem) {
+    if (cart.length === 0) {
+      cartContainer.innerHTML = "";
+    }
     cart.push(product);
-    cartContainer.innerHTML = "";
     cartContainer.innerHTML += getCartItemHTML(
       name,
       price,
