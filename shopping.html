@@ -8,11 +8,12 @@
   </head>
   <body>
     <!-- Header -->
-    <header>
+    <header class="header">
       <h1>Shopping Cart</h1>
+      <button id="cart-btn">Cart</button>
     </header>
     <div class="products">
-      <div class="cart-items">
+      <div class="cart-items" data-id="1">
         <!-- Cart items will be dynamically added here -->
         <img
           src="./images/09782617f73b306f06b02301bb7ce03a.png"
@@ -28,7 +29,7 @@
         </div>
         <button class="add-to-cart">Add to Cart</button>
       </div>
-      <div class="cart-items">
+      <div class="cart-items" data-id="2">
         <!-- Cart items will be dynamically added here -->
         <img
           src="./images/1448965caa4de29d87b4e2614d23d2b4.png"
@@ -44,7 +45,7 @@
         </div>
         <button class="add-to-cart">Add to Cart</button>
       </div>
-      <div class="cart-items">
+      <div class="cart-items" data-id="3">
         <!-- Cart items will be dynamically added here -->
         <img
           src="./images/80e02f6077ef25d0621da1d0f4cf603c.png"
@@ -60,7 +61,7 @@
         </div>
         <button class="add-to-cart">Add to Cart</button>
       </div>
-      <div class="cart-items">
+      <div class="cart-items" data-id="4">
         <!-- Cart items will be dynamically added here -->
         <img
           src="./images/299ec8d3892d2a49318101f1dd4622c8.png"
@@ -76,7 +77,7 @@
         </div>
         <button class="add-to-cart">Add to Cart</button>
       </div>
-      <div class="cart-items">
+      <div class="cart-items" data-id="5">
         <!-- Cart items will be dynamically added here -->
         <img
           src="./images/fashion-shoes-sneakers.jpg"
@@ -92,7 +93,7 @@
         </div>
         <button class="add-to-cart">Add to Cart</button>
       </div>
-      <div class="cart-items">
+      <div class="cart-items" data-id="6">
         <!-- Cart items will be dynamically added here -->
         <img
           src="./images/shoes.jpg"
@@ -108,7 +109,7 @@
         </div>
         <button class="add-to-cart">Add to Cart</button>
       </div>
-      <div class="cart-items">
+      <div class="cart-items" data-id="7">
         <!-- Cart items will be dynamically added here -->
         <img
           src="./images/sport-new-lifestyle-fashion-sneakers.jpg"
@@ -124,7 +125,7 @@
         </div>
         <button class="add-to-cart">Add to Cart</button>
       </div>
-      <div class="cart-items">
+      <div class="cart-items" data-id="8">
         <!-- Cart items will be dynamically added here -->
         <img
           src="./images/—Pngtree—running shoes or sneakers on_18457027.png"
@@ -140,7 +141,7 @@
         </div>
         <button class="add-to-cart">Add to Cart</button>
       </div>
-      <div class="cart-items">
+      <div class="cart-items" data-id="9">
         <!-- Cart items will be dynamically added here -->
         <img
           src="./images/Gold-Jewellery-Bangles-PNG-Image.png"
@@ -156,7 +157,7 @@
         </div>
         <button class="add-to-cart">Add to Cart</button>
       </div>
-      <div class="cart-items">
+      <div class="cart-items" data-id="10">
         <!-- Cart items will be dynamically added here -->
         <img
           src="./images/Gold-Jewellery-Necklace-PNG-Free-Download.png"
@@ -172,7 +173,7 @@
         </div>
         <button class="add-to-cart">Add to Cart</button>
       </div>
-      <div class="cart-items">
+      <div class="cart-items" data-id="11">
         <!-- Cart items will be dynamically added here -->
         <img
           src="./images/Watch-Free-Download-PNG.png"
@@ -188,7 +189,7 @@
         </div>
         <button class="add-to-cart">Add to Cart</button>
       </div>
-      <div class="cart-items">
+      <div class="cart-items" data-id="12">
         <!-- Cart items will be dynamically added here -->
         <img
           src="./images/—Pngtree—new years little things illustration_3866313.png"
@@ -205,6 +206,36 @@
         <button class="add-to-cart">Add to Cart</button>
       </div>
     </div>
+    <!-- CART SECTION -->
+    <section id="cart-page">
+      <header>
+        <h1>My Cart</h1>
+        <button class="back-btn">← Continue Shopping</button>
+      </header>
+      <div class="cart-layout">
+      <div id="cart-container"></div>
+      <div class="order-summary">
+        <h2>Order Summary</h2>
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <span id="summary-subtotal"> ₹0 </span>
+        </div>
+        <div class="summary-row">
+          <span>Shipping</span>
+          <span>Free</span>
+        </div>
+        <div class="summary-row">
+          <span>GST</span>
+          <span id="summary-tax"> 0 </span>
+        </div>
+        <div class="summary-row total-row">
+          <span>Total</span>
+          <span id="summary-total"> ₹0 </span>
+        </div>
+        <button class="checkout-btn">Proceed to Checkout</button>
+      </div>
+      </div>
+    </section>
     <script src="./cart.js"></script>
   </body>
 </html>
