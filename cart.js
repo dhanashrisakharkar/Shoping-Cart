@@ -103,9 +103,10 @@ function getcartDataAndUpdateCart(product) {
   let middleCard = card.querySelector(".cart-middle");
   middleCard.querySelector("p:nth-child(3)").textContent =
     `Quantity: ${updatedItem.quantity}`;
-  middleCard.querySelector("p:nth-child(4)").textContent = `Subtotal: ₹${
-    updatedItem.subtotal
-  }`;
+  (
+    middleCard.querySelector("p:nth-child(4)") ||
+    middleCard.querySelector("p:nth-child(5)")
+  ).textContent = `Subtotal: ₹${updatedItem.subtotal}`;
 }
 
 function getProductData(cartItem) {
@@ -161,8 +162,13 @@ function setPlusMinusButtons(button) {
 
 function setEventListenersOnRemoveButtons() {
   cartContainer.addEventListener("click", (e) => {
-    if (e.target.classList.contains("remove-btn")) {
-      let btn = e.target;
+    let btn = e.target;
+    if (
+      btn.classList.contains("minus-button") ||
+      btn.classList.contains("plus-button")
+    ) {
+      setPlusMinusButtons(btn);
+    } else if (btn.classList.contains("remove-btn")) {
       let cartItem = btn.closest(".cart-card");
       let name = cartItem.querySelector("h2").textContent;
       let price = cartItem.querySelector("p").textContent;
@@ -174,6 +180,7 @@ function setEventListenersOnRemoveButtons() {
         showEmptyCartMessage();
       }
     }
+    updateCartTotals();
   });
 }
 
