@@ -1,4 +1,5 @@
 console.log("connected");
+import cartObject from "./cartobject.js";
 let minusButton = document.querySelectorAll(".minus-button");
 let plusButton = document.querySelectorAll(".plus-button");
 let quantityElement = document.querySelectorAll(".quantity");
@@ -16,9 +17,61 @@ let subtotalElement = document.getElementById("summary-subtotal");
 let summartTotalElement = document.getElementById("summary-total");
 let gstElement = document.getElementById("summary-tax");
 let checkoutBtn = document.querySelector(".checkout-btn");
+
 let subtotal,
   quantityMax = 50,
   quantityMin = 1;
+
+(function () {
+  function getCreateElement(element) {
+    return document.createElement(element);
+  }
+
+  function addClassElement(element, className) {
+    element.classList.add(className);
+  }
+  cartObject.forEach(function (obj, index) {
+    let card = getCreateElement("div");
+    addClassElement(card, "cart-items");
+    card.setAttribute("data-id", index + 1);
+    let image = getCreateElement("img");
+    image.src = obj.imageSrc;
+    image.alt = "Empty Cart";
+    image.style.width = "200px";
+    image.style.height = "200px";
+    let headTwo = getCreateElement("h2");
+    headTwo.textContent = obj.name;
+    let price = getCreateElement("p");
+    price.textContent = `Price: ₹${obj.cost}`;
+    let quantityBox = getCreateElement("div");
+    quantityBox.classList.add("quantity-box");
+    let minusButton = getCreateElement("button");
+    addClassElement(minusButton, "minus-button");
+    minusButton.textContent = "-";
+    let spanElem = getCreateElement("span");
+    addClassElement(spanElem, "quantity");
+    spanElem.textContent = 1;
+    let plusButton = getCreateElement("button");
+    addClassElement(plusButton, "plus-button");
+    plusButton.textContent = "+";
+    let addCartButton = getCreateElement("button");
+    addClassElement(addCartButton, "add-to-cart");
+    addCartButton.textContent = 'Add to Cart';
+
+    card.append(image);
+    card.append(headTwo);
+    card.append(price);
+
+    quantityBox.append(minusButton);
+    quantityBox.append(spanElem);
+    quantityBox.append(plusButton);
+
+    card.append(quantityBox);
+    card.append(addCartButton);
+
+    productsContainer.append(card);
+  });
+})();
 
 backBtn.addEventListener("click", () => {
   header.style.display = "flex";
